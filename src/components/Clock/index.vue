@@ -1,6 +1,6 @@
 <template>
   <div class="clock">
-    <h4>{{ time }}</h4>
+    <h4>今天是{{ time }}</h4>
   </div>
 </template>
 
@@ -14,20 +14,20 @@ export default class Clock extends Vue {
   timer: any = null;
   constructor () {
     super();
-    this.time = moment().format('YYYY-MM-DD HH:MM:SS');
+    this.time = moment().format('今天是YYYY年-MM月-DD日， 现在时刻HH:mm:ss');
   }
 
-  mounted () {
+  mounted ():void {
     this.change();
   }
 
-  change () {
+  change ():void {
     this.timer = setInterval(() => {
-      this.time = new Date().toLocaleString();
+      this.time = moment().format('今天是YYYY年-MM月-DD日， 现在时刻HH:mm:ss');
     }, 1000);
   }
 
-  destroyed () {
+  destroyed ():void {
     clearInterval(this.timer);
   }
 }

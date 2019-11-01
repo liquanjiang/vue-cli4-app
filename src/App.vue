@@ -7,6 +7,9 @@
     <router-view/>
   </div>
 </template>
+<script langt="ts">
+export default {};
+</script>
 
 <style>
 #app {
