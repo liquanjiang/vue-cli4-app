@@ -14,7 +14,7 @@ export default class Clock extends Vue {
   timer: any = null;
   constructor () {
     super();
-    this.time = moment().format('今天是YYYY年-MM月-DD日， 现在时刻HH:mm:ss');
+    this.time = moment().format('今天是YYYY年MM月DD日， 现在时刻HH:mm:ss');
   }
 
   mounted ():void {
@@ -23,7 +23,7 @@ export default class Clock extends Vue {
 
   change ():void {
     this.timer = setInterval(() => {
-      this.time = moment().format('今天是YYYY年-MM月-DD日， 现在时刻HH:mm:ss');
+      this.time = moment().format('今天是YYYY年MM月DD日， 现在时刻HH:mm:ss');
     }, 1000);
   }
 
