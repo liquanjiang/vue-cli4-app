@@ -19,6 +19,9 @@ export default class Clock extends Vue {
 
   mounted ():void {
     this.change();
+    const date = moment().subtract(3, 'day').unix();
+    console.log(date);
+    console.log(moment().unix());
   }
 
   change ():void {

@@ -4,7 +4,7 @@
     <p> {{value}}</p>
     <div>
       <label>
-        <input type="text" v-model="value">
+        <input type="text"  @input="change" :value="FatherValue">
       </label>
     </div>
   </div>
@@ -20,11 +20,21 @@ export default class Test extends Vue {
     key:string,
     value:number } | undefined;
   @Prop({ type: String }) private name: string | undefined;
-  @Model() public value: string | undefined;
+  private value: string | undefined = '111';
+  @Prop() @Model('tooWay-binding') FatherValue: string | undefined;
+  @Emit()
+  private changeValue (value:string) {
+    return value;
+  }
 
-  @Watch('value')
-  onchange (newValue:string, oldValue:string):void {
+  @Watch('FatherValue')
+  private onchange (newValue:string, oldValue:string):void {
     console.log(newValue, oldValue);
+  }
+
+  private change (e:any):void {
+    this.$emit('tooWay-binding', e.target.value);
+    this.changeValue(e.target.value);
   }
 
   mounted (): void {

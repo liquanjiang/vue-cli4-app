@@ -7,7 +7,7 @@
     <router-view/>
   </div>
 </template>
-<script langt="ts">
+<script lang="ts">
 export default {};
 </script>
 
