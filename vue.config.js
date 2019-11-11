@@ -1,14 +1,14 @@
-const path = require('path')
-const webpack = require('webpack')
+const path = require('path');
+const webpack = require('webpack');
 
 // 拼接路径
 function resolve (dir) {
-  return path.join(__dirname, dir)
+  return path.join(__dirname, dir);
 }
 
 // 基础路径 注意发布到生产环境之前要先修改这里
-const isProd = process.env.NODE_ENV === 'production'
-const baseUrl = isProd ? process.env.VUE_APP_BASEURL : '/'
+const isProd = process.env.NODE_ENV === 'production';
+const baseUrl = isProd ? process.env.VUE_APP_BASEURL : '/';
 
 module.exports = {
   publicPath: baseUrl, // 根据你的实际情况更改这里
@@ -39,12 +39,6 @@ module.exports = {
           '^/service': ''
         }
       },
-      /* '/master': {
-          target: 'http://10.4.106.5:8089',
-          ws: true,
-          changeOrigin: true,
-          pathRewrite: { '^/master': '' }
-      }, */
       '/master': {
         target: 'http://10.4.138.221:8089',
         ws: true,
@@ -57,8 +51,8 @@ module.exports = {
   // 默认设置: https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-service/lib/config/base.js
   chainWebpack: config => {
     // svg
-    const svgRule = config.module.rule('svg')
-    svgRule.uses.clear()
+    const svgRule = config.module.rule('svg');
+    svgRule.uses.clear();
     svgRule
       .include
       .add(resolve('src/assets/svg-icons/icons'))
@@ -68,21 +62,21 @@ module.exports = {
       .options({
         symbolId: 'd2-[name]'
       })
-      .end()
+      .end();
     // image exclude
-    const imagesRule = config.module.rule('images')
+    const imagesRule = config.module.rule('images');
     imagesRule
       .test(/\.(png|jpe?g|gif|webp|svg)(\?.*)?$/)
       .exclude
       .add(resolve('src/assets/svg-icons/icons'))
-      .end()
+      .end();
     // 重新设置 alias
     config.resolve.alias
-      .set('@', resolve('src'))
+      .set('@', resolve('src'));
     // babel-polyfill 加入 entry
-    const entry = config.entry('app')
+    const entry = config.entry('app');
     entry
       .add('babel-polyfill')
-      .end()
+      .end();
   }
-}
+};

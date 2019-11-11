@@ -1,11 +1,10 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
     <HelloWorld msg="你好，我是李大师"/>
     <Clock></Clock>
     <Test :test="test" @changeValue="change" v-model="FatherValue"></Test>
     <div>{{FatherValue}}</div>
-    <Data :data="FatherValue"></Data>
+    <Data :data="FatherValue" value></Data>
   </div>
 </template>
 
