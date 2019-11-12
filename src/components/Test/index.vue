@@ -1,7 +1,7 @@
 <template>
   <div class="text">
-    <p> {{test.name}}</p>
-    <p> {{value}}</p>
+    <p>{{test.name}}</p>
+    <p>{{value}}</p>
     <div>
       <label>
         <input type="text"  @input="change" :value="FatherValue">
@@ -60,7 +60,7 @@ export default class Test extends Vue {
   }
 
   mounted (): void {
-    console.log(this.parseUA())
+    console.log(this.parseUA());
   }
 
   destroyed (): void {
